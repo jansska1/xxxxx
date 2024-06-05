@@ -1,0 +1,24 @@
+@keyframes scroll {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+.input-with-scrolling-placeholder::before {
+	content: attr(data-placeholder);
+	position: absolute;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+	transform: translateX(100%);
+	animation: scroll 10s linear infinite;
+	/* color: gray; Kolor placeholdera */
+}
+
+.input-with-scrolling-placeholder {
+	position: relative;
+	color: transparent; /* Ukrycie prawdziwego placeholdera */
+}

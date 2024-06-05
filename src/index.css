@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.text-gradient {
+		@apply bg-rose-gradient;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+
+@layer base {
+	@font-face {
+		font-family: 'Quicksand';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(./fonts/Quicksand-VariableFont_wght.ttf) format('woff2');
+	}
+}
+
+.dropbtn {
+	/* background-color: #dc2626;
+	color: #111827; */
+	padding: 16px;
+	font-size: 16px;
+	/* border: none; */
+	border-bottom: 1px solid #030712;
+	cursor: pointer;
+	width: 100%;
+}
+
+/* Kontener dla rozwijanego menu */
+.dropdown {
+	position: relative;
+	display: inline-block;
+	width: 160px;
+}
+
+/* Ukrycie rozwijanego menu domyślnie */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #e11d48;
+	width: 100%;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+/* Style dla linków w rozwijanym menu */
+.dropdown-content li {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Zmiana koloru tła linku po najechaniu */
+.dropdown-content li:hover {
+	background-color: #f1f1f1;
+}
+
+/* Wyświetlenie rozwijanego menu po najechaniu na przycisk */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Zmiana koloru przycisku po najechaniu */
+.dropdown:hover .dropbtn {
+	background-color: #020617;
+	color: #e11d48;
+}
