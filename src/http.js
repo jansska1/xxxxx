@@ -26,3 +26,22 @@ export async function createUser(user) {
 		throw new Error('Failed to update user data.')
 	}
 }
+
+export async function makeTransfer(data) {
+	const response = await fetch(`http://localhost:8080/operation/transfer`, {
+		method: "PUT",
+		body: data,
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	})
+	const doneTransfer = await response.json()
+
+	console.log(doneTransfer)
+
+	if (!response.ok) {
+		throw new Error('Failed to fetch user')
+	}
+
+	return doneTransfer
+}
