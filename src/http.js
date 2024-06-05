@@ -1,6 +1,8 @@
-export async function fetchAvailableUsers() {
-	const response = await fetch(`http://localhost:8080/client/${data.pesel}${data.password}`)
+export async function fetchAvailableUsers(data) {
+	const response = await fetch(`http://localhost:8080/client/${data.pesel}/${data.password}`)
 	const loggedUser = await response.json()
+
+	console.log(loggedUser)
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch user')
