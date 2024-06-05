@@ -83,7 +83,6 @@ export default function Register() {
 		console.log(error)
 
 		registerDataCtx.handleRegister(data)
-		handleShowLogin()
 		reset.current.reset()
 		setIsRegistered(true)
 	}
@@ -108,22 +107,8 @@ export default function Register() {
 		actions = <span>Rejestrowanie...</span>
 	}
 
-	if (data && !error) {
-		return (
-			<Modal
-				open={userProgressCtx.progress === 'register'}
-				onClose={userProgressCtx.progress === 'register' ? closeRegister : null}>
-				<h2>Sukces</h2>
-				<p>Konto zostało załóżone poprawnie.</p>
-				{/* <p></p> */}
-				<p>
-					<Button onClick={handleShowLogin}>Okay</Button>
-				</p>
-			</Modal>
-		)
-	}
-
 	return (
+		<>
 		<Modal
 			open={userProgressCtx.progress === 'register'}
 			onClose={closeRegister}
@@ -225,5 +210,18 @@ export default function Register() {
 				{/* </div> */}
 			</form>
 		</Modal>
+		{registered && (
+			<Modal
+				open={userProgressCtx.progress === 'register'}
+				onClose={userProgressCtx.progress === 'register' ? closeRegister : null}>
+				<h2>Sukces</h2>
+				<p>Konto zostało załóżone poprawnie.</p>
+				{/* <p></p> */}
+				<p>
+					<Button onClick={handleShowLogin}>Okay</Button>
+				</p>
+			</Modal>
+		)}
+		</>
 	)
 }
