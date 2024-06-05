@@ -52,6 +52,9 @@ export default function Login() {
 			input: hasEmptyFields,
 		}))
 
+		
+		console.log("test3")
+
 		if (hasEmptyFields) {
 			return
 		}
@@ -73,19 +76,13 @@ export default function Login() {
 		// 		return
 		// 	}
 		// }
-
-		if (!registerDataCtx.status) {
-			setError(prevError => ({
-				...prevError,
-				passes: true,
-			}))
-			return
-		}
+		console.log("test2")
 
 		async function fetchUser() {
 			setIsFetching(true)
+			console.log("test")
 			try {
-				const user = await fetchAvailableUsers()
+				const user = await fetchAvailableUsers(data)
 				setUser(user)
 			} catch (error) {
 				setError({ message: error.message || 'Could not fetch places, please try later' })
